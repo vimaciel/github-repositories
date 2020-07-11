@@ -1,12 +1,8 @@
-const app = require('express')();
+const express = require('express');
 const { name } = require('../package.json');
 
+const app = express();
+require('./startup/routes')(app);
 
-app.get('/', (res, req) => {
-    return req.status(200).send("Initial commit");
-})
-
-const port = 3001
-app.listen(port, () => console.log(`${name} executando na porta ${port}.`))
-
-module.exports = app
+const port = process.env.PORT || 3001;
+module.exports = app.listen(port, () => console.log(`${name} is running on port ${port}`));
