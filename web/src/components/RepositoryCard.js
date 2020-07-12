@@ -6,7 +6,7 @@ import StarIcon from '@material-ui/icons/Star';
 import { lighten } from 'polished';
 
 const Card = styled.div`
-    background-color: ${props => lighten(0.1, props.bgColor)};
+    background-color: ${props => lighten(0.1, props.bgcolor)};
     border: 2px solid ${props => props.borderColor};
     border-radius: 5px;
     padding: 20px;
@@ -43,7 +43,7 @@ const RepositoryCard = ({ repository }) => {
         <Card
             color={primary.contrastText}
             borderColor={secondary.main}
-            bgColor={primary.main}>
+            bgcolor={primary.main}>
 
             <Link color={primary.contrastText} href={page_url} target="_blank">
                 <User>

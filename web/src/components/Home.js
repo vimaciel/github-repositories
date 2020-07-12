@@ -16,7 +16,7 @@ const MainGrid = styled(Grid)`
 `
 
 const ContentGrid = styled(Grid)`
-    background-color: ${props => props.bgColor};
+    background-color: ${props => props.bgcolor};
     padding: 20px;
 `
 
@@ -39,7 +39,7 @@ const Home = () => {
             <MainGrid
                 container>
                 <ContentGrid
-                    bgColor={primary.main}
+                    bgcolor={primary.main}
                     xs={12}
                     md={7}
                     item>
