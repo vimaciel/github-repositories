@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { put as putSaga, delay } from 'redux-saga/effects';
-// import { updateLoadingStore } from '../actions/loading';
+import { put as putSaga } from 'redux-saga/effects';
+import { updateLoadingStore } from '../actions/loading';
 
 const apiUrl = 'http://localhost:3001/api'//process.env.API_URL;
 console.log(apiUrl);
@@ -17,12 +17,12 @@ axios.create({
 
 export function* get(source) {
     try {
-        // yield putSaga(updateLoadingStore(true));
+        yield putSaga(updateLoadingStore(true));
         return yield axios.get(`${apiUrl}/${source}`, { withCredentials: true });
     } catch (error) {
         return error.response;
     }
     finally {
-        // yield putSaga(updateLoadingStore(false));
+        yield putSaga(updateLoadingStore(false));
     }
 }

@@ -3,6 +3,7 @@ import { Grid, useTheme } from '@material-ui/core';
 import styled, { createGlobalStyle } from 'styled-components';
 import SearchForm from './SearchForm';
 import Repositories from './Repositories';
+import Loading from './Loading';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,6 +25,7 @@ const FormGrid = styled(Grid)`
     justify-content: center;
     align-items: center;
     display: flex;
+    padding: 10px;
 `
 
 const Home = () => {    
@@ -33,6 +35,7 @@ const Home = () => {
     return (
         <>
             <GlobalStyle />
+            <Loading />
             <MainGrid
                 container>
                 <ContentGrid

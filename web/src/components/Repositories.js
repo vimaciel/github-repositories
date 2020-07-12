@@ -14,7 +14,7 @@ const Repositories = () => {
     const { items } = repositories;
 
     return (
-        <Grid container spacing={3}>
+        <Grid container spacing={1}>
             {items.map(item => (
                 <Grid item md={6} style={{ display: 'flex' }}>
                     <RepositoryCard

@@ -68,15 +68,22 @@ const SearchForm = () => {
 
     return (
         <Container>
-            <Logo
-                src={logo}
-                alt="gh-logo" />
-            <Typography variant="h4">
-                Github Repositories
-            </Typography>
-            <Typography variant="subtitle2">
-                Pesquise por repositórios públicos do github
-            </Typography>
+            <Box 
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                justifyContent="center">
+                <Logo
+                    src={logo}
+                    alt="gh-logo" />
+                <Typography variant="h4">
+                    Github Repositories
+                </Typography>
+                <Typography variant="subtitle2">
+                    Pesquise por repositórios públicos do github
+                </Typography>
+            </Box>
+
             <form onSubmit={onSubmit}>
                 <TextField
                     onChange={onChangeQuery}

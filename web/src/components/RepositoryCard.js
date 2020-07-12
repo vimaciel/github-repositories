@@ -10,8 +10,9 @@ const Card = styled.div`
     border: 2px solid ${props => props.borderColor};
     border-radius: 5px;
     padding: 20px;
-    color: white;    
-    width: 100%;    
+    color: ${props => props.color};    
+    width: 100%;   
+    word-break: break-all; 
 `
 
 const User = styled.div`
@@ -19,6 +20,15 @@ const User = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+`
+
+const Link = styled.a`
+    color: ${props => props.color};    
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: underline;
+    }
 `
 
 const RepositoryCard = ({ repository }) => {
@@ -31,17 +41,21 @@ const RepositoryCard = ({ repository }) => {
 
     return (
         <Card
+            color={primary.contrastText}
             borderColor={secondary.main}
             bgColor={primary.main}>
-            <User>
-                <Avatar src={avatar_url} alt={login} />
-                <Typography variant="subtitle1" style={{ marginLeft: '15px' }}>
-                    {login}
-                </Typography>
-            </User>
 
-            <Box                
-                marginTop="20px">
+            <Link color={primary.contrastText} href={page_url} target="_blank">
+                <User>
+                    <Avatar src={avatar_url} alt={login} />
+                    <Typography variant="subtitle1" style={{ marginLeft: '15px' }}>
+                        {login}
+                    </Typography>
+                </User>
+            </Link>
+
+            <Box
+                marginBottom="20px">
                 <Chip
                     size="small"
                     icon={<CallSplitIcon />}
@@ -51,17 +65,19 @@ const RepositoryCard = ({ repository }) => {
                     style={{ marginLeft: '15px' }}
                     size="small"
                     icon={<StarIcon />}
-                    label={`stars: ${stars}`}                    
+                    label={`stars: ${stars}`}
                     color="secondary" />
             </Box>
 
-            <Typography variant="h5">
-                {full_name}
-            </Typography>
-            <Typography variant="subtitle2" style={{ marginTop: '10px' }}>
+            <Link color={primary.contrastText} href={url} target="_blank">
+                <Typography variant="h6">
+                    {full_name}
+                </Typography>
+            </Link>
+            <Typography variant="subtitle2" style={{ marginTop: '20px' }}>
                 {description}
             </Typography>
-            
+
         </Card>
     )
 }
