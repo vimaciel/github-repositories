@@ -22,10 +22,9 @@ router.get('/search', [validateUrlQuery('page', 'language', 'query')], async (re
 const buildResponse = async (apiResponse) => {
     const { data } = apiResponse;
 
-    const items = await Promise.all(data.items.map(async item => {
+    const items = data.items.map(item => {
         const { name, full_name, html_url: url, description, owner, forks, stargazers_count: stars, languages_url } = item;
         const { login, avatar_url, html_url: owner_html_url } = owner;
-        const languages = await axios.get(languages_url);
 
         return {
             name,
@@ -34,14 +33,13 @@ const buildResponse = async (apiResponse) => {
             description,
             forks,
             stars,
-            languages: languages.data,
             owner: {
                 login,
                 avatar_url,
                 page_url: owner_html_url
             }
         }
-    }));
+    });
 
 
     return {
