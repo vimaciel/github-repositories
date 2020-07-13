@@ -10,6 +10,8 @@ export function* searchRepositoriesWatcher() {
 function* searchRepositories({ page, language, query }) {
     const resource = `repositories/search?page=${page}&language=${language}&query=${query}`
     const response = yield call(api.get, resource);
+    console.log(response);
+
     yield put(updateSearchStore({ page, language, query }))
     if (response.data.success) {
         const { data } = response.data
