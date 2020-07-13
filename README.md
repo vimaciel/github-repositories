@@ -1,10 +1,13 @@
 # Github Repositories
+por [Vinicius Furusho Maciel](https://www.linkedin.com/in/vimaciel)
 
 Este projeto tem como objetivo pesquisar repositórios púbicos do Github, agrupando por linguagens de programação. 
 Nesta primeira versão, é possível pesquisar com os seguintes campos:
 
   - Termo: palavra-chave pesquisada no nome, na descrição ou no README do repositório;
   - Linguagem: a linguagem de programação utilizada no projeto do repositório.
+
+![](demo.gif)
 
 ### Observação
 > Github Repositories faz uso da api do github de forma não autenticada, resultando no limite de 10 requisições por minuto.
