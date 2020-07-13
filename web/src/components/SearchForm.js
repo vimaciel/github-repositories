@@ -11,14 +11,21 @@ const Logo = styled.img`
     margin-bottom: 10px;
 `
 
-const Container = styled.div`
-    position: fixed;
+const Container = styled.div`    
     top: 0;
     height: 100%;
     padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 960px) {
+        position: relative;
+    }
+
+    @media (min-width: 960px) {
+        position: fixed;
+    }
 `
 
 const SearchForm = () => {
