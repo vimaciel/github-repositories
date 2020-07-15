@@ -40,7 +40,7 @@ $ npm start
 
 - react;
 - redux;
-- reduxs-saga;
+- redux-saga;
 - material-ui;
 - styled-components;
 - axios;
